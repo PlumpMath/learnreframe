@@ -1,17 +1,29 @@
 (ns asimpleapp.views
     (:require [re-frame.core :as rf]
+              [reagent.ratom :as r :refer-macros [reaction]]
               [asimpleapp.subs]
               [asimpleapp.events]))
 
 ;; -- Domino 5 - View Functions ----------------------------------------------
+;(defn clock
+;  []
+;  (println "clock")
+;  (let [time-color (rf/subscribe [:time-color])
+;        time (rf/subscribe [:time])]
+;    [:div.example-clock
+;     {:style {:color @time-color}}
+;     (str @time)]))
+
 (defn clock
   []
   (println "clock")
-  (let [time-color (rf/subscribe [:time-color])
-        time (rf/subscribe [:time])]
+  (let [time (rf/subscribe [:timemap])
+        currenttime (:current-time @time)
+        currentcolor (:time-color @time)]
     [:div.example-clock
-     {:style {:color @time-color}}
-     (str @time)]))
+     {:style {:color currentcolor}}
+     (str currenttime)]))
+
 
 (defn color-input
   []

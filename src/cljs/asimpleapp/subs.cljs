@@ -23,6 +23,9 @@
         (:time)
         (:time-color))))
 
-
+(rf/reg-sub
+  :timemap
+  (fn [db _]
+    (:time db)))
 
 

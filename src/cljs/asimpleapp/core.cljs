@@ -16,7 +16,7 @@
 ;; Call the dispatching function every second.
 ;; `defonce` is like `def` but it ensures only instance is ever
 ;; created in the face of figwheel hot-reloading of this file.
-(defonce do-timer (js/setInterval dispatch-timer-event 10000))
+(defonce do-timer (js/setInterval dispatch-timer-event 5000))
 
 (defn dev-setup []
   (when config/debug?
